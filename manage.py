@@ -21,7 +21,7 @@ import os  # noqa: E402
 import sys  # noqa: E402
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "summersmash.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "longnosebros.settings")
 
     from django.core.management import execute_from_command_line
 

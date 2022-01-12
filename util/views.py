@@ -1,6 +1,11 @@
 from django.shortcuts import render
 
+from user.forms import UserSignupForm
+
 
 def homepage(request):
-    print("entered homepage")
-    return render(request, 'base.html')
+    form = UserSignupForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'base.html', context)

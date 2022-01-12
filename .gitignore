@@ -8,7 +8,7 @@ include
 src
 bin
 _media
-summersmash/exported
+longnosebros/exported
 local_settings.py
 share
 _static_root
@@ -17,3 +17,6 @@ logs
 analytics.dat
 .vagrant
 .env
+design_resources
+venv
+db.sqlite3

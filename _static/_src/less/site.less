@@ -1,11 +1,187 @@
-@import "_bootstrap";
+@import "../vendor/bootstrap/less/bootstrap";
+
+.center {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+//Baro Contour.otf
+//Baro LineFour.otf
+//Baro LineOne.otf
+//Baro LineThree.otf
+//Baro LineTwo.otf
+//Baro Plain.otf
+//Baro Strip.otf
+
+@font-face {
+   font-family: 'Soltz';
+   font-weight: normal;
+   src: url('../../fonts/Soltz_Gradient.ttf');
+}
+
+@font-face {
+   font-family: 'Baro';
+   font-weight: normal;
+   src: url('../../fonts/BaroLineFour.otf');
+}
+
+//@font-face {
+//   font-family: 'UbuntuBold';
+//      src: url('Ubuntu-B-webfont.eot');
+//      src: url('Ubuntu-B-webfont.eot?#iefix') format('embedded-opentype'),
+//           url('Ubuntu-B-webfont.woff') format('woff'),
+//           url('Ubuntu-B-webfont.ttf') format('truetype'),
+//           url('Ubuntu-B-webfont.svg#UbuntuBold') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+//}
+
+.baro {
+   font-family: 'Baro', arial, sans-serif;
+   font-weight: normal;
+   font-style: normal;
+   text-shadow: 1px 1px 11px orange;
+}
+
+.hidden {
+  display: none;
+}
+
+.soltz {
+   font-family: 'Soltz', arial, sans-serif;
+   font-weight: normal;
+   font-style: normal;
+   color: orange;
+   //text-shadow: 1px 1px 11px orange;
+}
+
 
 body {
   padding-top: 56px;
   background-color: white;
   .navbar {
-    .logo {
-
+    box-shadow: orange 1px 1px 11px 1px;
+    .lnb-logo-primary {
+      height: 50px;
+    }
+    &.summersmash {
+      .lnb-logo-primary {
+        border-right: solid 3px #f19c00;
+        padding-right: 8px;
+      }
+      .lnb-logo-secondary {
+        height: 48px;
+        margin-left: 9px;
+      }
     }
   }
+  .primary-section {
+    height: 500px;
+    h1 {
+      text-shadow: 1px 1px 11px orange;
+    }
+  }
+  .bg-geo-primary {
+    background-image: url("../../img/backgrounds/Screenshot 2020-01-18 14.57.16.png");
+    background-size: cover;
+    #trophy {
+      height: 580px;
+    }
+  }
+}
+
+#cup-overlay {
+  width: 477px;
+  position: absolute;
+  left: 50%;
+  top: 235px;
+  z-index: 1;
+  margin-left: -238px;
+}
+
+.video-container {
+  min-height: 317px;
+  &.video-crop {
+    max-width: 100%;
+    padding: 0;
+    overflow: hidden;
+
+    video {
+      clip-path: polygon(0% 0%, 0% 100%, 36% 100%, 24% 0, 76% 0, 76% 0, 64% 100%, 15% 100%, 100% 100%, 100% 0%);
+      margin-top: -254px;
+      margin-bottom: -258px;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: 0;
+    }
+
+    h1 {
+      position: fixed;
+      left: 50%;
+      &:nth-of-type(1) {
+        bottom: 182px;
+        z-index: 10;
+        margin-left: -199px;
+      }
+      &:nth-of-type(2) {
+        bottom: 129px;
+        margin-left: -242px;
+      }
+    }
+  }
+}
+
+.registration-container {
+  position: relative;
+  padding-top: 174px;
+  z-index: 10000000000;
+  h1 {
+    font-size: 60px;
+    text-align: center
+  }
+  form#registration-form {
+
+  }
+}
+
+header {
+  position: relative;
+  background-color: black;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
 }

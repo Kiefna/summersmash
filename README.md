@@ -1,2 +1,2 @@
-# summersmash
-Repo for the summersmash website.
+# longnosebros
+Repo for the longnosebros website.

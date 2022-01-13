@@ -90,7 +90,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+print('MADE IT TO THE ROOT_URL @@@@@@@@@@@@@@@@')
 ROOT_URLCONF = 'longnosebros.urls'
 
 TEMPLATES = [

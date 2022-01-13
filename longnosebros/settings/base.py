@@ -1,16 +1,47 @@
 import os
-import dotenv
 import django_heroku
 
-ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
+
+def get_env_variable(var_name, default=False):
+    """
+    Get the environment variable or return exception
+    :param var_name: Environment Variable to lookup
+    """
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        from io import StringIO
+        import configparser
+        from django.utils.encoding import force_text
+        env_file = os.environ.get('PROJECT_ENV_FILE', BASE_DIR + "/.env")
+        try:
+            config = StringIO()
+            config.write("[DATA]\n")
+            with open(env_file) as f:
+                config.write(force_text(f.read()))
+            config.seek(0, os.SEEK_SET)
+            cp = configparser.ConfigParser()
+            cp.read_file(config)
+            value = dict(cp.items('DATA'))[var_name.lower()]
+            if value.startswith('"') and value.endswith('"'):
+                value = value[1:-1]
+            elif value.startswith("'") and value.endswith("'"):
+                value = value[1:-1]
+            os.environ.setdefault(var_name, value)
+            return value
+        except (KeyError, IOError):
+            if default is not False:
+                return default
+            from django.core.exceptions import ImproperlyConfigured
+            error_msg = "Either set the env variable '{var}' or place it in your " \
+                        "{env_file} file as '{var} = VALUE'"
+            raise ImproperlyConfigured(error_msg.format(var=var_name, env_file=env_file))
+
+
+ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-# Add .env variables anywhere before SECRET_KEY
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -65,8 +96,7 @@ ROOT_URLCONF = 'longnosebros.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,11 +122,16 @@ BOOTSTRAP3 = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': get_env_variable('DATABASE_NAME'),
+        'USER': get_env_variable('DATABASE_USER'),
+        'PASSWORD': get_env_variable('DATABASE_PASSWORD'),
+        'HOST': get_env_variable('DATABASE_HOST'),
+        'PORT': get_env_variable('DATABASE_PORT', 5432),
+        'CONN_MAX_AGE': None,
+        'DISABLE_SERVER_SIDE_CURSORS': True  # setting this to be friendly with pgbouncer
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -148,8 +183,6 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, '_static'),
 )
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # using these as finders prevents unnecessary copying of source

@@ -16,33 +16,34 @@
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{% static '_src/less/site.css' %}">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-transparent">
     <div class="container">
-        <a class="navbar-brand" href="#"><img class='lnb-logo-primary' src="{% static 'img/logos/LNB3.png' %}"></a>
+        <a class="navbar-brand" href="#"><img class='lnb-logo-primary' src="{% static 'img/logos/LNB4.png' %}"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
+{#                <li class="nav-item active">#}
+{#                    <a class="nav-link" href="#">Home#}
+{#                        <span class="sr-only">(current)</span>#}
+{#                    </a>#}
+{#                </li>#}
+                <li class="nav-item anthology">
+                    <a class="nav-link text-white" href="#">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                <li class="nav-item anthology">
+                    <a class="nav-link text-white" href="#">Services</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                <li class="nav-item anthology">
+                    <a class="nav-link text-white" href="#">Contact</a>
                 </li>
             </ul>
         </div>
@@ -51,20 +52,19 @@
 
 <!-- Header -->
 <header class="bg-geo-primary primary-section py-5 mb-5">
-{#    <div class="overlay"></div>#}
-    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <source src="{% static 'video/fire_cup.mp4' %}" type="video/mp4">
-    </video>
     <div class="container h-100">
         <div class="row h-100">
             <div class="col-lg-12">
-                <h1 class="display-4 text-white mt-5 mb-2 baro text-center">CAN YOU HANDLE THE HEAT?</h1>
-{#                <img id='trophy' class='center' src="{% static 'img/extra/transparent_cup_cartoon.png' %}">#}
+                <br>
+                <br>
+                <br>
+                <br>
+                <h1 class="anthology text-white text-center">My name is Chris, I'm a web developer working out of Victoria, British Columbia</h1>
+
             </div>
         </div>
     </div>
 </header>
-<img id='cup-overlay' src="{% static 'img/extra/transparent_cup_cartoon_front3.png' %}">
 {#<div class="video-container video-crop">#}
 {#    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">#}
 {#        <source src="{% static 'video/longnosebros-collage.mp4' %}" type="video/mp4">#}
@@ -73,39 +73,7 @@
 {#<h1 class="display-4 text-white mt-5 mb-2 baro text-center">JUNE 27, 2020</h1>#}
 {#<h1 class="display-4 text-white mt-5 mb-2 baro text-center">REGISTER BELOW!</h1>#}
 <!-- Page Content -->
-<div class="container registration-container">
-    <h1 class="soltz">REGISTER NOW</h1>
-    <form id="registration-form">
-        <div class="form-group required"><label class="control-label" for="id_username">Username</label><input
-                type="text" name="username" maxlength="40" autofocus="" class="form-control" placeholder="Username"
-                title="" required="" id="id_username"></div>
-        <div class="form-group required"><label class="control-label" for="id_email">Email</label>
-            <input type="email" name="email" maxlength="254" class="form-control" placeholder="Email" title="" required="" id="id_email">
-        </div>
-        <div class="form-group required"><label class="control-label" for="id_password1">Password</label>
-            <input type="password" name="password1" class="form-control" placeholder="Password" title="Your password can&amp;#39;t be too similar to your other personal information.Your password must contain at least 8 characters.Your password can&amp;#39;t be a commonly used password.Your password can&amp;#39;t be entirely numeric." required="" id="id_password1">
-
-            <div class="help-block">
-                <ul>
-                    <li>Your password can't be too similar to your other personal information.</li>
-                    <li>Your password must contain at least 8 characters.</li>
-                    <li>Your password can't be a commonly used password.</li>
-                    <li>Your password can't be entirely numeric.</li>
-                </ul>
-            </div>
-
-        </div>
-        <div class="form-group required"><label class="control-label" for="id_password2">Password
-            confirmation</label>
-            <input type="password" name="password2" class="form-control"
-                   placeholder="Password confirmation"
-                   title="Enter the same password as before, for verification." required=""
-                   id="id_password2">
-
-            <div class="help-block">Enter the same password as before, for verification.</div>
-
-        </div>
-    </form>
+<div class="container">
 
 </div>
 <!-- /.container -->

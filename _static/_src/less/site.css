@@ -8611,10 +8611,27 @@ a.text-dark:focus {
   font-weight: normal;
   src: url('../../fonts/BaroLineFour.otf');
 }
+@font-face {
+  font-family: 'Anthology';
+  font-weight: normal;
+  src: url('../../fonts/Anthology-Sans.ttf');
+}
+@font-face {
+  font-family: 'Sahar';
+  font-weight: normal;
+  src: url('../../fonts/Sahar-regular.ttf');
+}
 .baro {
   font-family: 'Baro', arial, sans-serif;
   font-weight: normal;
   font-style: normal;
+}
+.anthology {
+  font-family: 'Anthology', arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+.shadow-orange {
   text-shadow: 1px 1px 11px orange;
 }
 .hidden {
@@ -8630,8 +8647,8 @@ body {
   padding-top: 56px;
   background-color: white;
 }
-body .navbar {
-  box-shadow: orange 1px 1px 11px 1px;
+body .navbar.navbar-transparent {
+  background-color: transparent!important;
 }
 body .navbar .lnb-logo-primary {
   height: 50px;
@@ -8645,6 +8662,7 @@ body .navbar.summersmash .lnb-logo-secondary {
   margin-left: 9px;
 }
 body .primary-section {
+  margin-top: -56px;
   height: 500px;
 }
 body .primary-section h1 {

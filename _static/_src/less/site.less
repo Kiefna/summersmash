@@ -26,6 +26,18 @@
    src: url('../../fonts/BaroLineFour.otf');
 }
 
+@font-face {
+  font-family: 'Anthology';
+  font-weight: normal;
+  src: url('../../fonts/Anthology-Sans.ttf');
+}
+
+@font-face {
+  font-family: 'Sahar';
+  font-weight: normal;
+  src: url('../../fonts/Sahar-regular.ttf');
+}
+
 //@font-face {
 //   font-family: 'UbuntuBold';
 //      src: url('Ubuntu-B-webfont.eot');
@@ -41,7 +53,16 @@
    font-family: 'Baro', arial, sans-serif;
    font-weight: normal;
    font-style: normal;
-   text-shadow: 1px 1px 11px orange;
+}
+
+.anthology {
+  font-family: 'Anthology', arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+&.shadow-orange {
+  text-shadow: 1px 1px 11px orange;
 }
 
 .hidden {
@@ -61,7 +82,10 @@ body {
   padding-top: 56px;
   background-color: white;
   .navbar {
-    box-shadow: orange 1px 1px 11px 1px;
+    //box-shadow: orange 1px 1px 11px 1px;
+    &.navbar-transparent {
+      background-color: transparent!important;
+    }
     .lnb-logo-primary {
       height: 50px;
     }
@@ -77,6 +101,7 @@ body {
     }
   }
   .primary-section {
+    margin-top: -56px;
     height: 500px;
     h1 {
       text-shadow: 1px 1px 11px orange;

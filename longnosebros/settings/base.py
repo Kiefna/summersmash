@@ -50,7 +50,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '@bdo_hi=h4srg2dh1((o21svgj3mmhtyll3els@1j(@)tf7#ef'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SIMPLE_SOCIALAUTH_SECURE = False
@@ -90,7 +90,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-print('MADE IT TO THE ROOT_URL @@@@@@@@@@@@@@@@')
+
 ROOT_URLCONF = 'longnosebros.urls'
 
 TEMPLATES = [
